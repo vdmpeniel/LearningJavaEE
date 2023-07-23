@@ -10,13 +10,4 @@
 >
   <display-name>Archetype Created Web Application</display-name>
 
-  <servlet>
-    <servlet-name>com.example.servlets.HelloServlet</servlet-name>
-    <servlet-class>com.example.servlets.HelloServlet</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>com.example.servlets.HelloServlet</servlet-name>
-    <url-pattern>/hello</url-pattern>
-  </servlet-mapping>
 </web-app>
