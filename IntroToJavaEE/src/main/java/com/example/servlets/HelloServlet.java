@@ -10,6 +10,6 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/plain");
-        response.getWriter().write("Hello, World!");
+        response.getWriter().write("Hello, World of xml descriptor mappings!");
     }
 }
