@@ -4,7 +4,7 @@
         <form
             action="http://localhost:8080/IntroToJavaEE-1.0-SNAPSHOT/myServlet"
             method="post"
-            enctype="multipart/form-data"
+            enctype="application/x-www-form-urlencoded"
         >
             <!-- form fields -->
             <input type="text" name="username">

@@ -9,8 +9,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-
-@WebServlet("/myJsonServlet")
+@WebServlet(value="/myJsonServlet", loadOnStartup=1)
 public class MyJsonServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -34,7 +33,22 @@ public class MyJsonServlet extends HttpServlet {
         response.setContentType("application/json");
 
         PrintWriter writer = response.getWriter();
-        writer.println( String.format(
+        writer.println(createJsonStringFromMap(username, password));
+//        writer.println(createJsonStringManually(username, password));
+        writer.close();
+    }
+
+    private String createJsonStringFromMap(String username, String password){
+        JSONObject credentials = new JSONObject(){{
+            put("message", "Thank you for sharing your credentials");
+            put("username", username);
+            put("password", password);
+        }};
+        return credentials.toString();
+    }
+
+    private String createJsonStringManually(String username, String password){
+        return String.format(
                 """ 
                 {
                     \"message\": \"Thank you for sharing your credentials\",
@@ -42,7 +56,7 @@ public class MyJsonServlet extends HttpServlet {
                     \"password\": \"%s\"
                 }
                 """, username, password
-        ));
-        writer.close();
+        );
     }
+
 }
